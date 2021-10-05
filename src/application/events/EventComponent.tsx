@@ -1,9 +1,11 @@
-import {ChangeEvent, DragEvent, FC} from 'react';
+import { ChangeEventHandler, DragEvent, FC} from 'react';
 
 const EventComponent: FC = () => {
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    // we can define the type of the event handler
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(event);
   };
+  // or the type of the event
   const handleDragStart = (event: DragEvent<HTMLDivElement>) => {
     console.log(event);
   };

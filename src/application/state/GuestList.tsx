@@ -1,8 +1,9 @@
 import { ChangeEvent, FC, useState } from 'react';
 
 const GuestList: FC = () => {
-  // type os this useState could be inferred as string without being passes explicitly
+  // type of this useState could be inferred as string without being passes explicitly
   const [name, setName] = useState<string>('');
+  // in the other hand this one should be typed to let ts know which kind of items are going to be in the array
   const [guests, setGuests] = useState<string[]>([]);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const {

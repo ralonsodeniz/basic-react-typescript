@@ -7,6 +7,7 @@ interface IUser {
 
 type TUser = IUser | undefined;
 
+// inputRef will have a null value initially and then it will be the type of the element it references in this case
 type TInputRef = HTMLInputElement | null;
 
 const users = [
@@ -26,12 +27,15 @@ const FocusedUserSearch: FC = () => {
     setName(value);
   };
   const handleClick = () => {
-    const foundUser = users.find((user) => user.name === name);
+    const foundUser = users.find(
+      (user) => user.name.toLowerCase() === name.toLowerCase(),
+    );
     setUser(foundUser);
   };
+
   useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    if (inputRef.current) inputRef.current.focus();
+  }, [inputRef]);
 
   return (
     <>

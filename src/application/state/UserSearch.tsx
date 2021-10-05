@@ -23,7 +23,9 @@ const UserSearch: FC = () => {
     setName(value);
   };
   const handleClick = () => {
-    const foundUser = users.find((user) => user.name === name);
+    const foundUser = users.find(
+      (user) => user.name.toLowerCase() === name.toLowerCase(),
+    );
     setUser(foundUser);
   };
 
